@@ -1,0 +1,6 @@
+projectKey=precios-ecommerce
+serverUrl=http://localhost:9000
+serverVersion=25.3.0.104237
+dashboardUrl=http://localhost:9000/dashboard?id=precios-ecommerce
+ceTaskId=65a670ce-f102-4931-8335-407199586564
+ceTaskUrl=http://localhost:9000/api/ce/task?id=65a670ce-f102-4931-8335-407199586564

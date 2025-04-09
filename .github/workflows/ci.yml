@@ -43,3 +43,24 @@ jobs:
       with:
         file: ./coverage.xml
         fail_ci_if_error: false
+
+  sonar:
+    name: Análisis SonarQube
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install sonar-scanner
+        run: npm install -g sonarqube-scanner
+
+      - name: Run SonarQube Scanner
+        run: sonar-scanner
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
