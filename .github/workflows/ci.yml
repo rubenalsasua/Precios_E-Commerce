@@ -56,8 +56,12 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install sonar-scanner
-        run: npm install -g sonarqube-scanner
+      - name: Install SonarQube Scanner
+        run: |
+            curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip
+            unzip sonar-scanner.zip
+            mv sonar-scanner-4.8.0.2856-linux sonar-scanner
+            export PATH=$PATH:$PWD/sonar-scanner/bin
 
       - name: Run SonarQube Scanner
         run: sonar-scanner
